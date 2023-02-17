@@ -31,9 +31,30 @@ class Employe
     }
 }
 
+class Patron  extends Employe
+{
+        public $voiture;
+
+    public function __construct($prenom, $nom, $age, $voiture)
+    {
+        parent::__construct($prenom, $nom, $age);
+
+        $this->voiture = $voiture;
+    }
+
+    public function rouler ()
+    {
+        var_dump("Bonjour, je roule avec ma $this->voiture");
+    }
+}
+
 $employe1 = new Employe("Malek", "Julien", 22);
 $employe2 = new Employe("Diouf", "Geoffrey", 30);
 
+$patron = new Patron("Joseph", "Durand" , 50, "Ferrari");
+
+$patron->presentation();
+$patron->rouler();
 // Grâce au private et au setAge impossible de modifier l'age pour qu'elle ne soit pas incohérente
 // 500 lignes de code
 
