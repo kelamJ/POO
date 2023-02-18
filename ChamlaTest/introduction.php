@@ -4,7 +4,7 @@ class Employe
 {
     public $nom;
     public $prenom;
-    private $age;
+    protected $age;
 
     public function __construct($prenom, $nom, $age)
     {
@@ -27,7 +27,7 @@ class Employe
     }
     public function presentation() 
     {
-        var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans");
+        var_dump("Salut, je suis $this->prenom $this->nom et j'ai $this->age ans");
     }
 }
 
@@ -42,6 +42,12 @@ class Patron  extends Employe
         $this->voiture = $voiture;
     }
 
+
+    public function presentation() 
+    {
+        var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans,et j'ai une voiture !");
+    }
+
     public function rouler ()
     {
         var_dump("Bonjour, je roule avec ma $this->voiture");
@@ -50,6 +56,7 @@ class Patron  extends Employe
 
 $employe1 = new Employe("Malek", "Julien", 22);
 $employe2 = new Employe("Diouf", "Geoffrey", 30);
+$employe1->presentation();
 
 $patron = new Patron("Joseph", "Durand" , 50, "Ferrari");
 
@@ -63,4 +70,4 @@ $patron->rouler();
 //500 lignes de code
 
 
-$employe1->presentation();
+
