@@ -1,6 +1,6 @@
 <?php
 
-class Employe 
+abstract class Humain
 {
     public $nom;
     public $prenom;
@@ -12,6 +12,8 @@ class Employe
         $this->prenom = $prenom;
         $this->setAge($age);
     }
+
+    abstract public function travailler();
 
     public function setAge($age)
     {
@@ -25,13 +27,21 @@ class Employe
     {
         return $this->age;
     }
+}
+class Employe extends Humain
+{
+    public function travailler()
+    {
+        return "Je suis un employe et je travaille";
+    }
+
     public function presentation() 
     {
         var_dump("Salut, je suis $this->prenom $this->nom et j'ai $this->age ans");
     }
 }
 
-class Patron  extends Employe
+class Patron extends Employe
 {
         public $voiture;
 
@@ -42,7 +52,10 @@ class Patron  extends Employe
         $this->voiture = $voiture;
     }
 
-
+public function travailler()
+{
+    return "Je suis le patron et je travaille aussi !";
+}
     public function presentation() 
     {
         var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans,et j'ai une voiture !");
@@ -60,9 +73,30 @@ $employe1->presentation();
 
 $patron = new Patron("Joseph", "Durand" , 50, "Ferrari");
 
+//Impossible
+//$humain = new Humain("Anne", "Durand", 18)
+
 $patron->presentation();
 $patron->rouler();
-// Grâce au private et au setAge impossible de modifier l'age pour qu'elle ne soit pas incohérente
+
+class Etudiant extends Humain
+{
+    public function travailler()
+    {
+        return "Je suis étudiant et je révise";
+    }
+}
+
+// On apelle les focntions
+faireTravailler($employe1);
+faireTravailler($patron);
+
+function faireTravailler(Humain $objet)
+{
+    var_dump("Travail en cours : {$objet->travailler()}");
+}
+
+// Grâce au private / protected et au setAge impossible de modifier l'age pour qu'elle ne soit pas incohérente
 // 500 lignes de code
 
 // $employe1->setAge(12);
