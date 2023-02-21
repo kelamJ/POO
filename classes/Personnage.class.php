@@ -29,6 +29,6 @@ class Personnage
 
     public function __toString()
     {
-        return "Nom d'utilisateur : " . $this->nom . "<br>" . "Prénom : " . $this->prenom . "<br>" . "Age :" . $this->age . "<br>" . $this->sexe;
+        return "Nom d'utilisateur : " . $this->nom . "<br>" . "Prénom : " . $this->prenom . "<br>" . "Age :" . $this->age . "<br>" . "Sexe : " . $this->sexe;
     }
 }
