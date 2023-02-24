@@ -19,13 +19,21 @@ class Employe
         $this->service = $service;
     }
 
-    public function Anciennete()
+    public function getAnciennete()
     {
         $dateEmbauche = new DateTime($this->dateEmb);
         $dateNow = new DateTime();
         $anciennete = $dateEmbauche->diff($dateNow);
-        echo $anciennete->y;
-        // return "$this->nom . $this->prenom . est dans l'entreprise depuis $anciennete"
+        echo "$this->nom $this->prenom est dans l'entreprise depuis $anciennete->y ans.";
     }
 
+    public function getPrime()
+    {
+        $salaireAnnuel = is_int($this->salaire);
+        $primeAnnuel = $salaireAnnuel * 0.05;
+        $primeAncien = $salaireAnnuel * 0.02;
+        // $datePrime = $anciennete->y;
+        // echo "$datePrime";
+        echo "";
+    }
 }

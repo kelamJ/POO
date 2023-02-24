@@ -1,6 +1,10 @@
 <?php
 include("Employe.class.php");
 
-$emp = new Employe("Malek", "Julien", "12-06-2000", "develloper", 25500, "Numérique");
+$emp = new Employe("Malek", "Julien", "25-06-2012", "develloper", 25500, "Numérique");
 
-$emp->Anciennete();
+$emp->getAnciennete();
+
+// $prime = "";
+
+// $prime->getPrime();
