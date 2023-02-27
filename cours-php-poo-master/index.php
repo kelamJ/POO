@@ -7,6 +7,8 @@
  * puis on va boucler dessus pour afficher chacun d'entre eux
  */
 require_once('libraries/database.php');
+require_once('libraries/utils.php');
+
 /**
  * 1. Connexion à la base de données avec PDO
  * Attention, on précise ici deux options :
@@ -28,8 +30,5 @@ $articles = $resultats->fetchAll();
  * 3. Affichage
  */
 $pageTitle = "Accueil";
-ob_start();
-require('templates/articles/index.html.php');
-$pageContent = ob_get_clean();
 
-require('templates/layout.html.php');
+render('articles/index', compact('pageTitle', 'articles'));
