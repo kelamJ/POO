@@ -8,6 +8,9 @@
  */
 require_once('libraries/database.php');
 require_once('libraries/utils.php');
+require_once('libraries/models/Article.php');
+
+$model = new Article();
 
 //* 1. Connexion à la base de données avec PDO
 
@@ -15,7 +18,7 @@ $pdo = getPdo();
 
  //* 2. Récupération des articles
 
-$articles = findAllArticles();
+$articles = $model->findAll();
 
 // * 3. Affichage
 
