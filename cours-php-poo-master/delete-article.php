@@ -30,9 +30,9 @@ $pdo = getPdo();
 /**
  * 3. Vérification que l'article existe bel et bien
  */
-$query = $pdo->prepare('SELECT * FROM articles WHERE id = :id');
-$query->execute(['id' => $id]);
-if ($query->rowCount() === 0) {
+$article = findArticle($id);
+
+if (!$article) {
     die("L'article $id n'existe pas, vous ne pouvez donc pas le supprimer !");
 }
 
